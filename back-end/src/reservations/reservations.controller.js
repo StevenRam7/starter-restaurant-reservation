@@ -13,7 +13,7 @@ function firstNameExists(req, res, next){
   } else{
     next({
       status: 400,
-      message: `Must include first name`
+      message: `Must include a first name.`
     });
   }
 }
@@ -26,7 +26,7 @@ function lastNameExists(req, res, next){
   } else{
     next({
       status: 400,
-      message: `Must include last name`
+      message: `Must include a last name.`
     });
   }
 }
@@ -39,7 +39,7 @@ function numberExists(req, res, next){
   } else{
     next({
       status: 400,
-      message: `Must include mobile number`
+      message: `Must include a mobile number.`
     });
   }
 }
@@ -52,7 +52,7 @@ async function dateExists(req, res, next){
   } else{
     next({
       status: 400,
-      message: `Must include date`
+      message: `Must include a date.`
     });
   }
 }
@@ -65,11 +65,27 @@ function timeExists(req, res, next){
   } else{
     next({
       status: 400,
-      message: `Must include time`
+      message: `Must include a time.`
     });
   }
 }
 
+function peopleExist(req, res, next){
+  const {data: {people}={}}= req.body;
+  if (people){
+    res.locals.people = people;
+    const reservation = res.locals;
+    res.locals.reservation = reservation;
+    return next();
+  } else{
+    next({
+      status: 400,
+      message: `Must include people.`
+    });
+  }
+}
+
+//http methods
 async function list(req, res) {
   res.json({
     data: [],
