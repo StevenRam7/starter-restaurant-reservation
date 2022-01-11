@@ -38,7 +38,7 @@ function SeatReservation() {
       <div>
         <ErrorAlert error={error} />
         <div>
-          <h3>Seat Reservation {params.reservationId}</h3>
+          <h1>Seat Reservation {params.reservationId}</h1>
         </div>
         <form onSubmit={submitHandler}>
           <label>Select Table:</label>
