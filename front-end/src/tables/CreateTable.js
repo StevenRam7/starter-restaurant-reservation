@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useHistory } from 'react-router-dom';
-import { createTable } from '../utils/api';
-import ErrorAlert from '../layout/ErrorAlert';
+import React, { useState, useEffect, useRef } from "react";
+import { useHistory } from "react-router-dom";
+import { createTable } from "../utils/api";
+import ErrorAlert from "../layout/ErrorAlert";
 
 function CreateTable() {
   const [tableError, setTableError] = useState(null);
   const [table, setTable] = useState({
-    table_name: '',
-    capacity: '',
+    table_name: "",
+    capacity: "",
   });
 
   const history = useHistory();
@@ -25,7 +25,7 @@ function CreateTable() {
   };
 
   const handleChange = ({ target: { name, value } }) => {
-    if (name === 'capacity') {
+    if (name === "capacity") {
       value = Number(value);
     }
     setTable((previousTable) => ({
@@ -68,10 +68,13 @@ function CreateTable() {
             />
           </label>
           <br />
-          <button type="submit" className="btn">
+          <button type="submit" className="btn btn-primary btn-outline-dark">
             Submit
           </button>
-          <button className="btn" onClick={history.goBack}>
+          <button
+            className="btn btn-danger btn-outline-dark"
+            onClick={history.goBack}
+          >
             Cancel
           </button>
         </fieldset>

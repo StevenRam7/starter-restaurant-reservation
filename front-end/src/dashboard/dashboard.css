@@ -1,0 +1,15 @@
+@media all and (min-width: 200px) {
+  main {
+    flex-direction: row;
+  }
+
+  button {
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+
+  h1 {
+    font-style: oblique;
+    font-weight: bold;
+  }
+}

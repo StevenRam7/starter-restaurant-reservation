@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { createReservation, updateReservation, readReservation } from '../utils/api';
 import ErrorAlert from '../layout/ErrorAlert';
+import "./Reservation.css";
 
 function ModifyReservation() {
   const [reservationsError, setReservationsError] = useState(null);
@@ -31,8 +32,7 @@ function ModifyReservation() {
             resId,
             abortController.signal
           );
-          console.log("OGres: ", originalReservation[0])
-          setReservation(originalReservation[0]);
+          setReservation(originalReservation);
         }
       } catch (error) {
         setReservationsError(error);
@@ -47,7 +47,6 @@ function ModifyReservation() {
     try {
       if (resId) {
         reservation.reservation_id = resId;
-        console.log("reservation: ", reservation)
         await updateReservation(reservation);
         history.push(`/dashboard?date=${reservation.reservation_date}`);
       } else {
@@ -149,10 +148,10 @@ function ModifyReservation() {
         </fieldset>
         <br />
         <div className="buttons">
-          <button type="submit" className="btn">
+          <button type="submit" className="btn btn-primary btn-outline-dark">
             Submit
           </button>
-          <button className="btn" onClick={history.goBack}>
+          <button className="btn btn-danger btn-outline-dark" onClick={(event) => history.push("/")}>
             Cancel
           </button>
         </div>

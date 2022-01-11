@@ -1,10 +1,10 @@
-import { React, useState, useEffect, useRef } from 'react';
-import ErrorAlert from '../layout/ErrorAlert';
-import { listReservations } from '../utils/api';
-import ReservationDisplay from '../reservation/ReservationDisplay';
+import { React, useState, useEffect, useRef } from "react";
+import ErrorAlert from "../layout/ErrorAlert";
+import { listReservations } from "../utils/api";
+import ReservationDisplay from "../reservation/ReservationDisplay";
 
 function Search() {
-  const [number, setNumber] = useState('');
+  const [number, setNumber] = useState("");
   const [reservations, setReservations] = useState([]);
   const [reservationsError, setReservationsError] = useState(null);
   const [searched, setSearched] = useState(false);
@@ -20,12 +20,10 @@ function Search() {
     setReservationsError(null);
     setSearched(false);
     try {
-      const params = { mobile_number : number }
+      const params = { mobile_number: number };
       const data = await listReservations(params, abortController.signal);
-      console.log("data :", data)
       setReservations(data);
       setSearched(true);
-      console.log("res: " + reservations, "searched: " + searched)
     } catch (error) {
       setReservationsError(error);
     }
@@ -40,7 +38,7 @@ function Search() {
       <form className="search-form mt-3" onSubmit={handleSubmit}>
         <label>
           <input
-            style={{ width: '400px' }}
+            style={{ width: "400px" }}
             name="mobile_number"
             type="text"
             placeholder="Enter a phone number"
@@ -50,7 +48,7 @@ function Search() {
             onChange={(event) => setNumber(event.target.value)}
           />
         </label>
-        <button className="btn" type="submit">
+        <button className="btn btn-success btn-outline-dark ml-1" type="submit">
           Find
         </button>
       </form>
@@ -70,7 +68,7 @@ function Search() {
         {searched && reservations.length === 0 ? (
           <h3>No reservations found</h3>
         ) : (
-          ''
+          ""
         )}
       </div>
     </div>

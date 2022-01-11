@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { listReservations, listTables } from '../utils/api';
-import ErrorAlert from '../layout/ErrorAlert';
-import { useHistory } from 'react-router-dom';
-import { previous, next } from '../utils/date-time';
-import ReservationDisplay from '../reservation/ReservationDisplay';
-import TablesDisplay from '../tables/TablesDisplay';
+import React, { useEffect, useState } from "react";
+import { listReservations, listTables } from "../utils/api";
+import ErrorAlert from "../layout/ErrorAlert";
+import { useHistory } from "react-router-dom";
+import { previous, next } from "../utils/date-time";
+import ReservationDisplay from "../reservation/ReservationDisplay";
+import TablesDisplay from "../tables/TablesDisplay";
+import "./dashboard.css";
 
 /**
  * Defines the dashboard page.
@@ -43,7 +44,7 @@ function Dashboard({ date }) {
   };
 
   const handleToday = () => {
-    history.push('/');
+    history.push("/");
   };
 
   return (
@@ -54,13 +55,22 @@ function Dashboard({ date }) {
           <h4>Reservations for date: {date}</h4>
         </div>
         <div className="buttons">
-          <button className="btn" onClick={() => handlePrevious(date)}>
+          <button
+            className="btn btn-secondary btn-outline-dark"
+            onClick={() => handlePrevious(date)}
+          >
             Previous
           </button>
-          <button className="btn" onClick={() => handleNext(date)}>
+          <button
+            className="btn btn-secondary btn-outline-dark"
+            onClick={() => handleNext(date)}
+          >
             Next
           </button>
-          <button className="btn" onClick={() => handleToday()}>
+          <button
+            className="btn btn-secondary btn-outline-dark"
+            onClick={() => handleToday()}
+          >
             Today
           </button>
         </div>
@@ -75,7 +85,11 @@ function Dashboard({ date }) {
         <ErrorAlert error={tablesError} />
       </div>
       <div>
-        <TablesDisplay tables={tables} date={date} loadDashboard={loadDashboard} />
+        <TablesDisplay
+          tables={tables}
+          date={date}
+          loadDashboard={loadDashboard}
+        />
       </div>
     </main>
   );

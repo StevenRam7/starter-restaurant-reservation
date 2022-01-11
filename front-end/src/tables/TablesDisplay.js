@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import ErrorAlert from '../layout/ErrorAlert';
 import { clearTable } from '../utils/api';
+import './Tables.css';
 
-function TablesDisplay({ date, tables, loadDashboard }) {
+function TablesDisplay({ tables, loadDashboard }) {
   const [finishError, setFinishError] = useState(null);
 
   async function handleFinish(tableId) {
@@ -39,7 +40,7 @@ function TablesDisplay({ date, tables, loadDashboard }) {
           {(table.reservation_id && (
             <button
               type="button"
-              className="btn"
+              className="btn btn-danger"
               data-table-id-finish={`${table.table_id}`}
               onClick={() => handleFinish(table.table_id, table.reservation_id)}
             >

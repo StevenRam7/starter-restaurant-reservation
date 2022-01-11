@@ -1,40 +1,36 @@
-import React, { useEffect, useState } from 'react'
-import { useHistory, useParams } from 'react-router-dom'
-import { listTables, updateSeatReservation } from '../utils/api'
-import ErrorAlert from '../layout/ErrorAlert'
+import React, { useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
+import { listTables, updateSeatReservation } from "../utils/api";
+import ErrorAlert from "../layout/ErrorAlert";
 
 function SeatReservation() {
-  const history = useHistory()
-  const params = useParams()
-  const [tables, setTables] = useState([])
-  const [tableForm, setTableForm] = useState({})
-  const [error, setError] = useState(null)
+  const history = useHistory();
+  const params = useParams();
+  const [tables, setTables] = useState([]);
+  const [tableForm, setTableForm] = useState({});
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const abortController = new AbortController()
-    setError(null)
-    listTables()
-      .then(setTables)
-      .catch(setError)
+    const abortController = new AbortController();
+    setError(null);
+    listTables().then(setTables).catch(setError);
 
-    return () => abortController.abort()
-  }, [])
+    return () => abortController.abort();
+  }, []);
 
   function submitHandler(event) {
-    event.preventDefault()
-    setError(null)
-    const tableObj = JSON.parse(tableForm)
-    console.log("tableform: ", tableObj, "resID: ", params.reservationId)
+    event.preventDefault();
+    setError(null);
+    const tableObj = JSON.parse(tableForm);
     updateSeatReservation(tableObj.table_id, params.reservationId)
-    
       .then((response) => {
         const newTables = tables.map((table) => {
-          return table.table_id === response.table_id ? response : table
-        })
-        setTables(newTables)
-        history.push('/dashboard')
+          return table.table_id === response.table_id ? response : table;
+        });
+        setTables(newTables);
+        history.push("/dashboard");
       })
-      .catch(setError)
+      .catch(setError);
   }
 
   if (tables) {
@@ -46,7 +42,11 @@ function SeatReservation() {
         </div>
         <form onSubmit={submitHandler}>
           <label>Select Table:</label>
-          <select name="table_id" onChange={(event) => setTableForm(event.target.value, console.log(event.target.value))}>
+          <select
+            className="table_id"
+            name="table_id"
+            onChange={(event) => setTableForm(event.target.value)}
+          >
             <option>Table Name: Capacity</option>
             {tables.map((table) => (
               <option
@@ -54,31 +54,31 @@ function SeatReservation() {
                 value={JSON.stringify(table)}
                 required={true}
               >
-                {table.table_name} : {table.capacity}
+                {table.table_name} - {table.capacity}
               </option>
             ))}
-            </select>
-            <div>
-              <button className='btn btn-primary' type='submit'>
-                Submit
-              </button>
-              <button
-                type='button'
-                className='btn btn-secondary'
-                onClick={() => history.goBack()}
-              >
-                Cancel
-              </button>
-            </div>
+          </select>
+          <div>
+            <button className="btn btn-primary" type="submit">
+              Submit
+            </button>
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={() => history.goBack()}
+            >
+              Cancel
+            </button>
+          </div>
         </form>
       </div>
-    )
+    );
   } else {
-      return (
-          <div>
-              <h3>There Are No Tables Available</h3>
-          </div>
-      )
+    return (
+      <div>
+        <h3>There Are No Tables Available</h3>
+      </div>
+    );
   }
 }
 
