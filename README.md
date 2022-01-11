@@ -19,8 +19,8 @@ The application allows users to create, edit, and cancel restaurant reservations
 
 ## Installation Instructions
 
-* In the project root directory install dependencies using 'npm install'
-* To run the application using a localhost use 'npm run start:dev'
+* In the project root directory install dependencies using `npm install`
+* To run the application using a localhost use `npm run start:dev`
 
 ## API Documentation
 
