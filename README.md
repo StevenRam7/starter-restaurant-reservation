@@ -67,12 +67,12 @@ The application allows users to create, edit, and cancel restaurant reservations
 
 ![capstone-dashboard](https://user-images.githubusercontent.com/83251605/148873922-a13dfc85-c5b7-4e6e-befa-6a7aa523bca6.png)
 
-![capstone-create-res](https://user-images.githubusercontent.com/83251605/148873951-7fb221b1-df0f-48b2-9c61-9c191bd7d8d2.png)
+![capstone-create-res](https://user-images.githubusercontent.com/83251605/148874843-73345299-8f79-4e07-9aff-305d25139e07.png)
 
-![capstone-edit-res](https://user-images.githubusercontent.com/83251605/148873963-c59b898b-b30e-4b13-9d1b-c68b782ce8b5.png)
+![capstone-edit-res](https://user-images.githubusercontent.com/83251605/148874863-14a0bad2-b6fd-40b6-8519-a162f11ff177.png)
 
-![capstone-seat](https://user-images.githubusercontent.com/83251605/148873975-c0c819be-07e3-4c27-936c-772d2428e365.png)
+![capstone-seat](https://user-images.githubusercontent.com/83251605/148874875-6bd3ab4a-d1e8-4713-8a2c-581c4f59f2fa.png)
 
-![capstone-create-table](https://user-images.githubusercontent.com/83251605/148873979-d8fd40fa-9992-448c-b3b4-da6743610e99.png)
+![capstone-create-table](https://user-images.githubusercontent.com/83251605/148874878-a30e59bb-17fb-4b7f-aad5-919828fba84b.png)
 
-![capstone-search](https://user-images.githubusercontent.com/83251605/148873988-079d9232-99b7-42cb-8bef-5f8d7996c6b9.png)
+![capstone-search](https://user-images.githubusercontent.com/83251605/148874880-2e8903d0-6a00-4047-83d5-b24d8ebada42.png)
