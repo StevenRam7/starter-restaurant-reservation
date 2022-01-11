@@ -29,9 +29,9 @@ The application allows users to create, edit, and cancel restaurant reservations
 | /reservations      | GET   | 200  | Returns a list of reservations for the current date |
 | /reservations      | POST  | 201    | Creates a new reservation |
 | /reservations?date=YYYY-MM-DD      | GET |  200    | Returns a list of reservations for the selected date |
-| /reservations/:reservation_id      | GET  | 200     | Returns the reservation for the given ID |
-| /reservations/:reservation_id      | PUT  | 200     | Updates the reservation for the given ID |
-| /reservations/:reservation_id/status      | PUT  | 200     | Updates the status of the reservation for the given ID |
+| /reservations/:reservation_id      | GET  | 200     | Returns the reservation for the selected ID |
+| /reservations/:reservation_id      | PUT  | 200     | Updates the reservation for the selected ID |
+| /reservations/:reservation_id/status      | PUT  | 200     | Updates the status of the reservation for the selected ID |
 | /tables   | GET  | 200      | Returns a list of tables     |
 | /tables   | POST  | 201      | Creates a new table     |
 | /tables/:table_id/seat   | PUT | 200      | Seats a reservation at the selected table     |
@@ -64,3 +64,15 @@ The application allows users to create, edit, and cancel restaurant reservations
 ```
 
 ## Screenshots
+
+![capstone-dashboard](https://user-images.githubusercontent.com/83251605/148873922-a13dfc85-c5b7-4e6e-befa-6a7aa523bca6.png)
+
+![capstone-create-res](https://user-images.githubusercontent.com/83251605/148873951-7fb221b1-df0f-48b2-9c61-9c191bd7d8d2.png)
+
+![capstone-edit-res](https://user-images.githubusercontent.com/83251605/148873963-c59b898b-b30e-4b13-9d1b-c68b782ce8b5.png)
+
+![capstone-seat](https://user-images.githubusercontent.com/83251605/148873975-c0c819be-07e3-4c27-936c-772d2428e365.png)
+
+![capstone-create-table](https://user-images.githubusercontent.com/83251605/148873979-d8fd40fa-9992-448c-b3b4-da6743610e99.png)
+
+![capstone-search](https://user-images.githubusercontent.com/83251605/148873988-079d9232-99b7-42cb-8bef-5f8d7996c6b9.png)
