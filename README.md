@@ -1,6 +1,6 @@
 # Thinkful Final Capstone: Restaurant Reservation System
 
-Deployed Application: 
+Deployed Application: https://sr2022-capstone-front.herokuapp.com/dashboard
 
 ## Summary
 This is a full-stack web application created as a final capstone project for Thinkful's software engineering course.
