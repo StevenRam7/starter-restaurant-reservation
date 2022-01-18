@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import { createReservation, updateReservation, readReservation } from '../utils/api';
+import { updateReservation, readReservation } from '../utils/api';
 import ErrorAlert from '../layout/ErrorAlert';
 import "./Reservation.css";
 
-function ModifyReservation() {
+function EditReservation() {
   const [reservationsError, setReservationsError] = useState(null);
   const [reservation, setReservation] = useState({
     first_name: '',
@@ -49,10 +49,7 @@ function ModifyReservation() {
         reservation.reservation_id = resId;
         await updateReservation(reservation);
         history.push(`/dashboard?date=${reservation.reservation_date}`);
-      } else {
-        await createReservation(reservation);
-        history.push(`/dashboard?date=${reservation.reservation_date}`);
-      }
+       }
     } catch (error) {
       setReservationsError(error);
     }
@@ -71,7 +68,7 @@ function ModifyReservation() {
   return (
     <div className="main">
       <div className="header">
-        <h1>{resId ? "Edit Reservation" : "Create A New Reservation"}</h1>
+        <h1>{"Edit Reservation"}</h1>
       </div>
       <form className="reservation-form mt-2" onSubmit={handleSubmit}>
         <ErrorAlert error={reservationsError} />
@@ -151,7 +148,7 @@ function ModifyReservation() {
           <button type="submit" className="btn btn-primary btn-outline-dark">
             Submit
           </button>
-          <button className="btn btn-danger btn-outline-dark" onClick={(event) => history.push("/")}>
+          <button className="btn btn-danger btn-outline-dark" onClick={(event) => history.goBack()}>
             Cancel
           </button>
         </div>
@@ -160,4 +157,4 @@ function ModifyReservation() {
   );
 }
 
-export default ModifyReservation;
+export default EditReservation;

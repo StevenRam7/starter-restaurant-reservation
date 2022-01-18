@@ -25,7 +25,7 @@ function TablesDisplay({ tables, loadDashboard }) {
     }
   }
 
-  const content = tables.map((table, index) => (
+  const content = tables.map((table) => (
     <div className="table" key={table.table_id}>
       <div className="card-header">{table.table_name}</div>
       <ul className="list-group">
