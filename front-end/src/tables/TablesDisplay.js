@@ -24,7 +24,7 @@ function TablesDisplay({ tables, loadDashboard }) {
       return () => abortController.abort();
     }
   }
-console.log(tables)
+
   const content = tables.map((table, index) => (
     <div className="table" key={table.table_id}>
       <div className="card-header">{table.table_name}</div>
