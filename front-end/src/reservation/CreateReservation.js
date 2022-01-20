@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import { createReservation } from '../utils/api';
-import ErrorAlert from '../layout/ErrorAlert';
+import ReservationForm from './ReservationForm';
 import "./Reservation.css";
 
 function CreateReservation() {
@@ -44,89 +44,7 @@ function CreateReservation() {
       <div className="header">
         <h1>{"Create A New Reservation"}</h1>
       </div>
-      <form className="reservation-form mt-2" onSubmit={handleSubmit}>
-        <ErrorAlert error={reservationsError} />
-        <fieldset>
-          <legend>Customer Information:</legend>
-          <label>
-            First Name:
-            <input
-              name="first_name"
-              type="text"
-              required
-              value = {null}
-              ref={inputRef}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Last Name:
-            <input
-              name="last_name"
-              type="text"
-              required
-              value={null}
-              onChange={handleChange}
-            />
-          </label>
-          <br />
-          <label>
-            Mobile Number:
-            <input
-              name="mobile_number"
-              type="tel"
-              required
-              value={null}
-              onChange={handleChange}
-            />
-          </label>
-        </fieldset>
-        <br />
-        <fieldset>
-          <legend>Reservation Information:</legend>
-          <label>
-            Date of Reservation:
-            <input
-              name="reservation_date"
-              type="date"
-              required
-              value={null}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Time of Reservation:
-            <input
-              name="reservation_time"
-              type="time"
-              required
-              value={null}
-              onChange={handleChange}
-            />
-          </label>
-          <br />
-          <label>
-            Number of people in Party:
-            <input
-              name="people"
-              type="number"
-              min="1"
-              required
-              value={null}
-              onChange={handleChange}
-            />
-          </label>
-        </fieldset>
-        <br />
-        <div className="buttons">
-          <button type="submit" className="btn btn-primary btn-outline-dark">
-            Submit
-          </button>
-          <button className="btn btn-danger btn-outline-dark" onClick={(event) => history.push("/")}>
-            Cancel
-          </button>
-        </div>
-      </form>
+      <ReservationForm reservation={reservation} reservationsError={reservationsError} inputRef={inputRef} handleChange={handleChange} handleSubmit={handleSubmit} />
     </div>
   );
 }

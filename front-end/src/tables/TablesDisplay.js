@@ -24,8 +24,8 @@ function TablesDisplay({ tables, loadDashboard }) {
       return () => abortController.abort();
     }
   }
-
-  const content = tables.map((table) => (
+console.log(tables)
+  const content = tables.map((table, index) => (
     <div className="table" key={table.table_id}>
       <div className="card-header">{table.table_name}</div>
       <ul className="list-group">
@@ -34,7 +34,7 @@ function TablesDisplay({ tables, loadDashboard }) {
           className="list-group-item"
           data-table-id-status={`${table.table_id}`}
         >
-          Status: {table.reservation_id ? 'Occupied' : 'Free'}
+          Status: {table.reservation_id ? "Occupied" : "Free"}
         </li>
         
           {(table.reservation_id && (

@@ -5,8 +5,7 @@
 import formatReservationDate from "./format-reservation-date";
 import formatReservationTime from "./format-reservation-date";
 
-const API_BASE_URL = "https://sr2022-capstone-back.herokuapp.com"
-  //process.env.REACT_APP_API_BASE_URL || "https://sr2022-capstone-back.herokuapp.com/";
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://sr2022-capstone-back.herokuapp.com/";
 
 /**
  * Defines the default headers for these functions to work with `json-server`
@@ -71,7 +70,6 @@ export async function listReservations(params, signal) {
 
 export async function updateReservationStatus(reservation_id, status, signal) {
   const url = new URL(`${API_BASE_URL}/reservations/${reservation_id}/status`);
-  console.log("status: " + status)
   const options = {
     method:'PUT',
     headers,
