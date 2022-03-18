@@ -29,7 +29,7 @@ function ReservationDisplay({ reservations }) {
     return (
       <tr key={reservation.reservation_id}>
         <th scope="row" style={{border:"none"}}>{reservation.reservation_id}</th>
-        <td style={{border:"none"}}>{reservation.status === "booked" ? reservation.first_name : "5"}</td>
+        <td style={{border:"none"}}>{reservation.first_name}</td>
         <td style={{border:"none"}}>{reservation.last_name}</td>
         <td style={{border:"none"}}>{reservation.mobile_number}</td>
         <td style={{border:"none"}}>{reservation.reservation_date}</td>
@@ -45,7 +45,7 @@ function ReservationDisplay({ reservations }) {
             <>
               <a
                 href={`/reservations/${reservation.reservation_id}/seat`}
-                className="btn btn-primary btn-outline-dark mx-1"
+                className="btn btn-info btn-outline-dark mx-1"
               >
                 Seat
               </a>
@@ -55,7 +55,7 @@ function ReservationDisplay({ reservations }) {
             <>
               <a
                 href={`/reservations/${reservation.reservation_id}/edit`}
-                className="btn btn-primary btn-outline-dark mx-1"
+                className="btn btn-info btn-outline-dark mx-1"
               >
                 Edit
               </a>
@@ -63,10 +63,10 @@ function ReservationDisplay({ reservations }) {
           )}
           {reservation.status !== "booked" ? null : (
             <>
-              <button
+              <button 
                 data-reservation-id-cancel={reservation.reservation_id}
                 onClick={() => handleCancel(reservation.reservation_id)}
-                className="btn btn-danger btn-outline-dark mx-1"
+                className="btn btn-danger btn-outline-dark mx-1 cancel"
               >
                 Cancel
               </button>

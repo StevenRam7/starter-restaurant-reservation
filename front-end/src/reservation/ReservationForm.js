@@ -1,5 +1,6 @@
 import ErrorAlert from "../layout/ErrorAlert";
 import { useHistory } from "react-router-dom";
+import "./Reservation.css"
 
 function ReservationForm({ reservation, reservationsError, handleChange, handleSubmit, inputRef }) {
     const history = useHistory();
@@ -7,6 +8,7 @@ function ReservationForm({ reservation, reservationsError, handleChange, handleS
     return (
     <form className="reservation-form mt-2" onSubmit={handleSubmit}>
         <ErrorAlert error={reservationsError} />
+        <div className="form-boxes">
         <fieldset>
           <legend>Customer Information:</legend>
           <label>
@@ -78,6 +80,7 @@ function ReservationForm({ reservation, reservationsError, handleChange, handleS
             />
           </label>
         </fieldset>
+        </div>
         <br />
         <div className="buttons">
           <button type="submit" className="btn btn-primary btn-outline-dark">

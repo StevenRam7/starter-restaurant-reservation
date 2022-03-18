@@ -1,0 +1,16 @@
+.main-section {
+    text-align: center;
+}
+
+.seat-header {
+    margin: 1em auto;
+    border: solid;
+    border-radius: 50px;
+    text-align: center;
+    width: 40rem;
+    background-color: rgb(184, 179, 179);
+}
+
+form {
+    font-family: sans-serif;
+}

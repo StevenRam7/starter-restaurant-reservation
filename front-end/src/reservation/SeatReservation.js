@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { listTables, updateSeatReservation } from "../utils/api";
 import ErrorAlert from "../layout/ErrorAlert";
+import "./SeatReservation.css";
 
 function SeatReservation() {
   const history = useHistory();
@@ -35,9 +36,9 @@ function SeatReservation() {
 
   if (tables) {
     return (
-      <div>
+      <div className="main-section">
         <ErrorAlert error={error} />
-        <div>
+        <div className="seat-header">
           <h1>Seat Reservation {params.reservationId}</h1>
         </div>
         <form onSubmit={submitHandler}>
@@ -59,12 +60,12 @@ function SeatReservation() {
             ))}
           </select>
           <div>
-            <button className="btn btn-primary" type="submit">
+            <button className="btn btn-primary btn-outline-dark" type="submit">
               Submit
             </button>
             <button
               type="button"
-              className="btn btn-secondary"
+              className="btn btn-danger btn-outline-dark"
               onClick={() => history.goBack()}
             >
               Cancel

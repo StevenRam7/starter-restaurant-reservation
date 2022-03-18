@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { createTable } from "../utils/api";
 import ErrorAlert from "../layout/ErrorAlert";
+import "./CreateTable.css";
 
 function CreateTable() {
   const [tableError, setTableError] = useState(null);
@@ -42,6 +43,7 @@ function CreateTable() {
       <form className="table-form mt-3" onSubmit={handleSubmit}>
         <ErrorAlert error={tableError} />
         <fieldset>
+          <div className="table-input">
           <legend>Table Information:</legend>
           <label className="table-name">
             Table Name:
@@ -68,6 +70,8 @@ function CreateTable() {
             />
           </label>
           <br />
+          </div>
+          <div className="buttons">
           <button type="submit" className="btn btn-primary btn-outline-dark">
             Submit
           </button>
@@ -77,6 +81,7 @@ function CreateTable() {
           >
             Cancel
           </button>
+          </div>
         </fieldset>
       </form>
     </div>

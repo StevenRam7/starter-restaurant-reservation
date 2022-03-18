@@ -1,8 +1,8 @@
 import React from "react";
 import Menu from "./Menu";
 import Routes from "./Routes";
-
 import "./Layout.css";
+import Navbar from "./Navbar";
 
 /**
  * Defines the main layout of the application.
