@@ -5,9 +5,21 @@
 
 .list-group-item {
   background-color: rgb(184, 179, 179);
+  width: 100%
 }
 
 h3 {
   font-style: oblique;
   font-weight: bold;
+  text-align: center;
+}
+
+.table {
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+.seat-btn {
+  margin-bottom: 0rem;
+  width: 100%
 }

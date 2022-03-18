@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { updateReservationStatus } from "../utils/api";
 import ErrorAlert from "../layout/ErrorAlert";
-import "./Reservation.css";
+import "./ReservationDisplay.css";
 
 function ReservationDisplay({ reservations }) {
   const [cancelReservationError, setCancelReservationError] = useState(null);
@@ -28,19 +28,19 @@ function ReservationDisplay({ reservations }) {
   const displayReservations = reservations.map((reservation, index) => {
     return (
       <tr key={reservation.reservation_id}>
-        <th scope="row">{reservation.reservation_id}</th>
-        <td>{reservation.first_name}</td>
-        <td>{reservation.last_name}</td>
-        <td>{reservation.mobile_number}</td>
-        <td>{reservation.reservation_date}</td>
-        <td>{reservation.reservation_time}</td>
-        <td>{reservation.people}</td>
-        <td>
+        <th scope="row" style={{border:"none"}}>{reservation.reservation_id}</th>
+        <td style={{border:"none"}}>{reservation.status === "booked" ? reservation.first_name : "5"}</td>
+        <td style={{border:"none"}}>{reservation.last_name}</td>
+        <td style={{border:"none"}}>{reservation.mobile_number}</td>
+        <td style={{border:"none"}}>{reservation.reservation_date}</td>
+        <td style={{border:"none"}}>{reservation.reservation_time}</td>
+        <td style={{border:"none"}}>{reservation.people}</td>
+        <td style={{border:"none"}}>
           <p data-reservation-id-status={reservation.reservation_id}>
             {reservation.status}
           </p>
         </td>
-        <td>
+        <td style={{border:"none"}}>
           {reservation.status !== "booked" ? null : (
             <>
               <a
@@ -78,25 +78,25 @@ function ReservationDisplay({ reservations }) {
   });
 
   return (
-    <>
+    <div className="full-table">
       <ErrorAlert error={cancelReservationError} />
       <table className="table caption-top">
         <thead>
-          <tr>
-            <th scope="col">ID #</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Mobile Number</th>
-            <th scope="col">Date</th>
-            <th scope="col">Time</th>
-            <th scope="col">People</th>
-            <th scope="col">Status</th>
-            <th scope="col"></th>
+          <tr className="header-row">
+            <th scope="col" style={{border:"none"}} >ID #</th>
+            <th scope="col" style={{border:"none"}}>First</th>
+            <th scope="col" style={{border:"none"}}>Last</th>
+            <th scope="col" style={{border:"none"}}>Mobile Number</th>
+            <th scope="col" style={{border:"none"}}>Date</th>
+            <th scope="col" style={{border:"none"}}>Time</th>
+            <th scope="col" style={{border:"none"}}>People</th>
+            <th scope="col" style={{border:"none"}}>Status</th>
+            <th scope="col" style={{border:"none"}}></th>
           </tr>
         </thead>
         <tbody>{displayReservations}</tbody>
       </table>
-    </>
+    </div>
   );
 }
 

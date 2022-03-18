@@ -1,9 +1,10 @@
 .side-bar {
   background-color: #393a44;
-  min-width: 200px;
+  min-width: 180px;
+  max-width: 200px;
   height: 100vh;
 }
 
 body {
-  background-color: rgb(24, 160, 160);
+  background: linear-gradient(to right, orange, red)
 }

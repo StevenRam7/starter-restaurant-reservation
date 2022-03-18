@@ -2,6 +2,7 @@ import { React, useState, useEffect, useRef } from "react";
 import ErrorAlert from "../layout/ErrorAlert";
 import { listReservations } from "../utils/api";
 import ReservationDisplay from "../reservation/ReservationDisplay";
+import './Search.css';
 
 function Search() {
   const [number, setNumber] = useState("");

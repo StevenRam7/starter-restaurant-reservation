@@ -1,8 +1,6 @@
 import ErrorAlert from "../layout/ErrorAlert";
 import { useHistory } from "react-router-dom";
 
-
-
 function ReservationForm({ reservation, reservationsError, handleChange, handleSubmit, inputRef }) {
     const history = useHistory();
     

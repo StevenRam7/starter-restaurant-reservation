@@ -1,0 +1,15 @@
+.header-row {
+    background-color: rgb(110, 108, 108);
+    border: none;
+}
+
+.full-table {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    
+}
+
+.table {
+    margin-bottom: 0rem;
+    border: solid;
+}
