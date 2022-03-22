@@ -80,7 +80,7 @@ function ReservationDisplay({ reservations }) {
   return (
     <div className="full-table">
       <ErrorAlert error={cancelReservationError} />
-      <table className="table caption-top">
+      <table className="table">
         <thead>
           <tr className="header-row">
             <th scope="col" style={{border:"none"}} >ID #</th>

@@ -26,7 +26,7 @@ function TablesDisplay({ tables, loadDashboard }) {
   }
 
   const content = tables.map((table, index) => (
-    <div className="table" key={table.table_id}>
+    <div className="table tabledisplay" key={table.table_id}>
       <div className="card-header">{table.table_name}</div>
       <ul className="list-group">
         <li className="list-group-item">Capacity: {table.capacity}</li>
@@ -46,7 +46,7 @@ function TablesDisplay({ tables, loadDashboard }) {
             >
               Finish
             </button>
-          )) || <p className="no-buttons"></p>}
+          )) || null}
                     
       </ul>
     </div>

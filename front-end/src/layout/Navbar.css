@@ -1,0 +1,17 @@
+nav {
+    background-color: rgb(110, 108, 108);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+a {
+    color: black;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+    font-size: 1.1rem;
+}
+
+a:hover {
+    color: white;
+}

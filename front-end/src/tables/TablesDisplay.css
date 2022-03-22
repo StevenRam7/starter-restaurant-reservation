@@ -5,7 +5,8 @@
 
 .list-group-item {
   background-color: rgb(184, 179, 179);
-  width: 100%
+  
+  
 }
 
 h3 {
@@ -15,8 +16,19 @@ h3 {
 }
 
 .table {
-  margin-bottom: 10px;
   border-radius: 8px;
+  border: solid;
+}
+
+.tabledisplay {
+  width: 60%;
+  text-align: center;
+}
+
+.tables-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .seat-btn {
