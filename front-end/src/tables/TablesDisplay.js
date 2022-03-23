@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ErrorAlert from '../layout/ErrorAlert';
-import { clearTable } from '../utils/api';
+import { clearTable, removeTable } from '../utils/api';
 import './TablesDisplay.css';
 
 function TablesDisplay({ tables, loadDashboard }) {
@@ -25,6 +25,25 @@ function TablesDisplay({ tables, loadDashboard }) {
     }
   }
 
+  async function handleRemove(tableId) {
+    if (
+      window.confirm(
+        'Are you sure you want to remove this table?'
+      )
+    ) {
+      const abortController = new AbortController();
+      setFinishError(null);
+      try {
+        await removeTable(tableId);
+        loadDashboard();
+      } catch (error) {
+        setFinishError(error);
+      }
+
+      return () => abortController.abort();
+    }
+  }
+
   const content = tables.map((table, index) => (
     <div className="table tabledisplay" key={table.table_id}>
       <div className="card-header">{table.table_name}</div>
@@ -40,13 +59,20 @@ function TablesDisplay({ tables, loadDashboard }) {
           {(table.reservation_id && (
             <button
               type="button"
-              className="btn btn-danger seat-btn"
+              className="btn btn-danger table-btn"
               data-table-id-finish={`${table.table_id}`}
               onClick={() => handleFinish(table.table_id, table.reservation_id)}
             >
               Finish
             </button>
-          )) || null}
+          )) || (
+            <button
+              type="button"
+              className="btn btn-warning table-btn"
+              data-table-id-remove={`${table.table_id}`}
+              onClick={() => handleRemove(table.table_id)}
+            >Remove</button>
+          )}
                     
       </ul>
     </div>

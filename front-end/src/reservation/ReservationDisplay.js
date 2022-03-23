@@ -40,7 +40,7 @@ function ReservationDisplay({ reservations }) {
             {reservation.status}
           </p>
         </td>
-        <td style={{border:"none"}}>
+        <td style={{border:"none", paddingRight: "0em"}}>
           {reservation.status !== "booked" ? null : (
             <>
               <a
@@ -91,7 +91,7 @@ function ReservationDisplay({ reservations }) {
             <th scope="col" style={{border:"none"}}>Time</th>
             <th scope="col" style={{border:"none"}}>People</th>
             <th scope="col" style={{border:"none"}}>Status</th>
-            <th scope="col" style={{border:"none"}}></th>
+            <th scope="col" style={{border:"none", paddingRight: "0em"}}></th>
           </tr>
         </thead>
         <tbody>{displayReservations}</tbody>

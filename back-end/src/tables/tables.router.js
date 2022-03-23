@@ -9,7 +9,7 @@ router.route('/')
 
 router.route('/:table_id')
   .get(controller.read)
-  .delete(controller.delete)
+  .delete(controller.removeTable)
   .all(methodNotAllowed)
 
 router.route('/:table_id/seat')
