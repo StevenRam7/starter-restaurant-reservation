@@ -3,7 +3,7 @@ import './Navbar.css';
 
 function Navbar() {
   return (
-    <nav class="navbar">
+    <nav className="navbar">
       <div id="nav-options">
         <a href="/" className="active">
           <span className="oi oi-dashboard" />

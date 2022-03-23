@@ -68,7 +68,7 @@ function EditReservation() {
   return (
     <div className="main">
       <div className="header">
-        <h1>{"Edit Reservation"}</h1>
+        <h1>Edit Reservation</h1>
       </div>
       <ReservationForm reservation={reservation} reservationsError={reservationsError} inputRef={inputRef} handleChange={handleChange} handleSubmit={handleSubmit} />
     </div>

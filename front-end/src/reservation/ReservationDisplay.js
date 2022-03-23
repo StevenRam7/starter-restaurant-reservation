@@ -33,19 +33,19 @@ function ReservationDisplay({ reservations }) {
         <td style={{border:"none"}}>{reservation.last_name}</td>
         <td style={{border:"none"}}>{reservation.mobile_number}</td>
         <td style={{border:"none"}}>{reservation.reservation_date}</td>
-        <td style={{border:"none"}}>{reservation.reservation_time}</td>
+        <td style={{border:"none"}}>{reservation.reservation_time.slice(0,5)}</td>
         <td style={{border:"none"}}>{reservation.people}</td>
         <td style={{border:"none"}}>
           <p data-reservation-id-status={reservation.reservation_id}>
             {reservation.status}
           </p>
         </td>
-        <td style={{border:"none", paddingRight: "0em"}}>
+        <td style={{border:"none", paddingLeft: "0em", paddingRight: "0em"}}>
           {reservation.status !== "booked" ? null : (
             <>
               <a
                 href={`/reservations/${reservation.reservation_id}/seat`}
-                className="btn btn-info btn-outline-dark mx-1"
+                className="btn btn-info btn-outline-dark btn-sm mx-1"
               >
                 Seat
               </a>
@@ -55,7 +55,7 @@ function ReservationDisplay({ reservations }) {
             <>
               <a
                 href={`/reservations/${reservation.reservation_id}/edit`}
-                className="btn btn-info btn-outline-dark mx-1"
+                className="btn btn-info btn-outline-dark btn-sm mx-1"
               >
                 Edit
               </a>
@@ -66,7 +66,7 @@ function ReservationDisplay({ reservations }) {
               <button 
                 data-reservation-id-cancel={reservation.reservation_id}
                 onClick={() => handleCancel(reservation.reservation_id)}
-                className="btn btn-danger btn-outline-dark mx-1 cancel"
+                className="btn btn-danger btn-outline-dark btn-sm mx-1 cancel"
               >
                 Cancel
               </button>
@@ -83,15 +83,15 @@ function ReservationDisplay({ reservations }) {
       <table className="table">
         <thead>
           <tr className="header-row">
-            <th scope="col" style={{border:"none"}} >ID #</th>
-            <th scope="col" style={{border:"none"}}>First</th>
-            <th scope="col" style={{border:"none"}}>Last</th>
-            <th scope="col" style={{border:"none"}}>Mobile Number</th>
+            <th scope="col" style={{border:"none", paddingLeft: "0.25em"}} >ID #</th>
+            <th scope="col" style={{border:"none"}}>First Name</th>
+            <th scope="col" style={{border:"none"}}>Last Name</th>
+            <th scope="col" style={{border:"none"}}>Phone #</th>
             <th scope="col" style={{border:"none"}}>Date</th>
             <th scope="col" style={{border:"none"}}>Time</th>
             <th scope="col" style={{border:"none"}}>People</th>
             <th scope="col" style={{border:"none"}}>Status</th>
-            <th scope="col" style={{border:"none", paddingRight: "0em"}}></th>
+            <th scope="col" style={{border:"none", paddingRight: "0em"}}>Options</th>
           </tr>
         </thead>
         <tbody>{displayReservations}</tbody>

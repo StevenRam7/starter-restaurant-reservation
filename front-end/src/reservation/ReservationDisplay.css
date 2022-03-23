@@ -3,12 +3,25 @@
     border: none;
 }
 
+@media all and (min-width: 670px) {
 .full-table {
     margin-top: 15px;
     margin-bottom: 15px;
     margin-left: 2em;
     margin-right: 2em;
-    /* width: 80%; */
+}
+}
+
+@media all and (max-width: 669px) {
+    .full-table {
+        width: 65%;
+        font-size: 10px;
+    }
+
+    button {
+        font-weight: bolder;
+    }
+
 }
 
 .cancel {
