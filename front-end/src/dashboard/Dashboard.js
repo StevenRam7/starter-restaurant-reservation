@@ -53,7 +53,7 @@ function Dashboard({ date }) {
     <main>
       <div className="header">
         <div className="header-text">
-          <h1>Dashboard</h1>
+          <h1>Reservation Managment System</h1>
           <h4>Reservations for date: {date}</h4>
         </div>
         <div className="buttons">

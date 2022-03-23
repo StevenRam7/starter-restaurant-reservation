@@ -160,6 +160,12 @@ async function destroy(req, res) {
   res.sendStatus(204);
 }
 
+async function removeTable(req, res) {
+  const { table } = res.locals;
+  await service.removeTable(table.table_id);
+  res.sendStatus(204);
+}
+
 module.exports = {
   create: [dataExists, validTableName, capacityIsNum, asyncErrorBoundary(create)],
   list: [asyncErrorBoundary(list)],
@@ -180,4 +186,5 @@ module.exports = {
     asyncErrorBoundary(clearTable),
   ],
   delete: [asyncErrorBoundary(tableExists), asyncErrorBoundary(destroy)],
+  removeTable: [asyncErrorBoundary(tableExists), asyncErrorBoundary(removeTable)]
 };

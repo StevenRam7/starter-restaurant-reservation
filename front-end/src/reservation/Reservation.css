@@ -12,3 +12,15 @@ input {
   margin-bottom: 20px;
   margin-top: 10px;
 }
+
+.form-boxes {
+  text-align: center;
+  border: solid;
+  border-radius: 50px;
+  background-color: rgb(184, 179, 179);
+  font-family: sans-serif;
+}
+
+.buttons {
+  text-align: center;
+}

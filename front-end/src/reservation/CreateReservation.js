@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import { createReservation } from '../utils/api';
 import ReservationForm from './ReservationForm';
-import "./Reservation.css";
 
 function CreateReservation() {
   const [reservationsError, setReservationsError] = useState(null);
@@ -42,9 +41,11 @@ function CreateReservation() {
   return (
     <div className="main">
       <div className="header">
-        <h1>{"Create A New Reservation"}</h1>
+        <h1>Create A New Reservation</h1>
       </div>
+      <div className="form-box">
       <ReservationForm reservation={reservation} reservationsError={reservationsError} inputRef={inputRef} handleChange={handleChange} handleSubmit={handleSubmit} />
+    </div>
     </div>
   );
 }

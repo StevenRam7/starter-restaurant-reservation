@@ -50,7 +50,13 @@ function clearTable(table_id) {
     .update({"reservation_id": null })
 }
 
-function destroy (table_id) {
+function destroy(table_id) {
+  return knex('tables')
+    .where({ table_id })
+    .del()
+}
+
+function removeTable(table_id) {
   return knex('tables')
     .where({ table_id })
     .del()
@@ -64,5 +70,6 @@ module.exports = {
   read,
   readReservation,
   clearTable,
+  removeTable,
   delete: destroy,
 }

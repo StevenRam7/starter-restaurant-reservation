@@ -171,6 +171,20 @@ export async function clearTable(tableId) {
       data: {},
     }),
   };
+  
+  return await fetchJson(url, options);
+  
+}
+
+export async function removeTable(tableId) {
+  const url = `${API_BASE_URL}/tables/${tableId}`;
+  const options = {
+    method: 'DELETE',
+    headers,
+    body: JSON.stringify({
+      data: { tableId },
+    }),
+  };
   return await fetchJson(url, options);
 }
 

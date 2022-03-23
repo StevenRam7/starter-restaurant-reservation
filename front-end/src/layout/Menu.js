@@ -1,12 +1,7 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
 
-/**
- * Defines the menu for this application.
- *
- * @returns {JSX.Element}
- */
+//original navigation sidebar - currently not in use
 
 function Menu() {
   return (
@@ -17,30 +12,30 @@ function Menu() {
           to="/"
         >
           <div className="sidebar-brand-text mx-3">
-            <span>Periodic Tables</span>
+            Reservation<br></br> Management
           </div>
         </Link>
-        <hr className="sidebar-divider my-0" />
+        <hr className="sidebar-divider my-1"/>
         <ul className="nav navbar-nav text-light" id="accordionSidebar">
-          <li className="nav-item">
-            <Link className="nav-link" to="/dashboard">
-              <span className="oi oi-dashboard" />
+          <li className="nav-item my-1" style={{fontSize:"18px"}}>
+            <Link className="nav-link" to="/dashboard" >
+              <span  className="oi oi-dashboard" />
               &nbsp;Dashboard
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item my-1" style={{fontSize:"18px"}}>
             <Link className="nav-link" to="/search">
               <span className="oi oi-magnifying-glass" />
               &nbsp;Search
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item my-1" style={{fontSize:"18px"}}>
             <Link className="nav-link" to="/reservations/new">
               <span className="oi oi-plus" />
               &nbsp;New Reservation
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item my-1" style={{fontSize:"18px"}}>
             <Link className="nav-link" to="/tables/new">
               <span className="oi oi-layers" />
               &nbsp;New Table

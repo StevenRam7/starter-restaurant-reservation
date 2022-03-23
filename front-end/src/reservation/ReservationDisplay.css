@@ -1,0 +1,29 @@
+.header-row {
+    background-color: rgb(110, 108, 108);
+    border: none;
+}
+
+@media all and (min-width: 670px) {
+.full-table {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+}
+
+@media all and (max-width: 669px) {
+    .full-table {
+        width: 65%;
+        font-size: 10px;
+    }
+
+    button {
+        font-weight: bolder;
+    }
+
+}
+
+.cancel {
+    margin-bottom: 0rem;
+}

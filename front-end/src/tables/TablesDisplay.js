@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ErrorAlert from '../layout/ErrorAlert';
-import { clearTable } from '../utils/api';
-import './Tables.css';
+import { clearTable, removeTable } from '../utils/api';
+import './TablesDisplay.css';
 
 function TablesDisplay({ tables, loadDashboard }) {
   const [finishError, setFinishError] = useState(null);
@@ -25,8 +25,27 @@ function TablesDisplay({ tables, loadDashboard }) {
     }
   }
 
+  async function handleRemove(tableId) {
+    if (
+      window.confirm(
+        'Are you sure you want to remove this table?'
+      )
+    ) {
+      const abortController = new AbortController();
+      setFinishError(null);
+      try {
+        await removeTable(tableId);
+        loadDashboard();
+      } catch (error) {
+        setFinishError(error);
+      }
+
+      return () => abortController.abort();
+    }
+  }
+
   const content = tables.map((table, index) => (
-    <div className="table" key={table.table_id}>
+    <div className="table tabledisplay" key={table.table_id}>
       <div className="card-header">{table.table_name}</div>
       <ul className="list-group">
         <li className="list-group-item">Capacity: {table.capacity}</li>
@@ -40,13 +59,20 @@ function TablesDisplay({ tables, loadDashboard }) {
           {(table.reservation_id && (
             <button
               type="button"
-              className="btn btn-danger"
+              className="btn btn-danger table-btn"
               data-table-id-finish={`${table.table_id}`}
               onClick={() => handleFinish(table.table_id, table.reservation_id)}
             >
               Finish
             </button>
-          )) || <p className="no-buttons"></p>}
+          )) || (
+            <button
+              type="button"
+              className="btn btn-warning table-btn"
+              data-table-id-remove={`${table.table_id}`}
+              onClick={() => handleRemove(table.table_id)}
+            >Remove</button>
+          )}
                     
       </ul>
     </div>
